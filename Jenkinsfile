@@ -17,7 +17,9 @@ pipeline {
        }
 
       stage('Stop docker image') {
-           echo 'stop'
+           steps{
+             echo 'stop'
+          }
        }
    }
   
