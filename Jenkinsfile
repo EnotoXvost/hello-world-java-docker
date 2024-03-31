@@ -4,19 +4,22 @@ pipeline {
    
    stages {
        stage('Run docker image') {
-           echo 'Run'
+           
+          steps{
+             echo 'Run'
+          }
        }
-   }
-   stages {
-       stage('Build docker image') {
-           echo 'Build'
-       }
-   }
 
-   stages {
-       stage('Stop docker image') {
-           echo 'Stop'
+      stage('Build docker image') {
+           steps{
+             echo 'build'
+          }
+       }
+
+      stage('Stop docker image') {
+           echo 'stop'
        }
    }
+  
   
 }
