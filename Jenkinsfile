@@ -1,18 +1,22 @@
 ipeline {
+   
    agent any
+   
+   stages {
+       stage('Run docker image') {
+           echo 'Run'
+       }
+   }
    stages {
        stage('Build docker image') {
-           steps {
-               script {
-                   echp 'build project'
-                   sh 'docker build -t hello-world-java-docker .'
-               }
-           }
+           echo 'Build'
        }
    }
-   post {
-       always {
-           archiveArtifacts artifacts: 'target/*.jar', fingerprint: true        
+
+   stages {
+       stage('Stop docker image') {
+           echo 'Stop'
        }
    }
+  
 }
