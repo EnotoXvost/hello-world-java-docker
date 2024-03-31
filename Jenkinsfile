@@ -12,7 +12,10 @@ pipeline {
 
       stage('Build docker image') {
            steps{
-             echo 'build'
+             echo 'build'  
+             script { 
+                   sh 'docker build -t hello-world-java-docker .' 
+               } 
           }
        }
 
@@ -23,5 +26,11 @@ pipeline {
        }
    }
   
-  
+post { 
+       success { 
+           archiveArtifacts artifacts: 'target/*.jar', fingerprint: true         
+       } 
+   } 
 }
+}
+
