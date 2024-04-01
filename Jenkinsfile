@@ -9,7 +9,7 @@ pipeline {
        stage('Build docker image') { 
            steps { 
                script { 
-                   sh 'docker build -t hello-world-java-docker .' 
+                   sh 'sudo docker build -t hello-world-java-docker .' 
                } 
            } 
        } 
